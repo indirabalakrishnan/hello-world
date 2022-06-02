@@ -80,6 +80,10 @@ workflows:
           requires:
             - job2
             - job3
+      - hold:
+          type: approval
+          requires:
+            - job4
       - job5:
           requires:
             - hold
