@@ -37,7 +37,7 @@ jobs:
 workflows:
   version: 2
   workflow1:
-    jobs:
+    jobs: #All jobs will be executed simultaneously
       - job1
       - job2
       - job3
@@ -87,3 +87,16 @@ workflows:
       - job5:
           requires:
             - hold
+  nightly: #Scheduled workflow
+    triggers:
+      - schedule:
+          cron: 10 13 * * *
+          filters:
+            branches:
+              only:
+                - workflow_configuration_examples
+    jobs: #All jobs will be executed simultaneously
+      - job1
+      - job2
+      - job3
+      - job4
