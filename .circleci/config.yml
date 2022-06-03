@@ -9,12 +9,14 @@ jobs:
     steps:
       - checkout
       - run: echo "Job1 Hello"
+      - run: echo ${foo}
   job2:
     docker:
       - image: cimg/base:stable
     steps:
       - checkout
       - run: echo "Job2 Hello"
+      - command: echo ${choco}
   job3:
     docker:
       - image: cimg/base:stable
