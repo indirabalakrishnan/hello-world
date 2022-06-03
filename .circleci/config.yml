@@ -10,6 +10,7 @@ jobs:
       - checkout
       - run: echo "Job1 Hello"
       - run: echo ${foo}
+      - run: echo ${CIRCLE_BRANCH}
   job2:
     docker:
       - image: cimg/base:stable
